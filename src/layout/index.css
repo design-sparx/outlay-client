@@ -1,0 +1,46 @@
+.navbar-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    float: left;
+    width: 120px;
+    height: 31px;
+    margin: 16px 24px 16px 0;
+}
+
+.navbar-brand .ant-typography {
+    color: white;
+    margin: 0;
+}
+
+.navbar-header .user-dropdown {
+    color: white;
+}
+
+.navbar-header .user-dropdown:hover,
+.navbar-header .user-dropdown:focus {
+    color: lightgray;
+}
+
+.site-layout {
+    padding: 0 50px;
+}
+
+.content {
+    min-height: 80vh;
+    padding: 16px;
+    background-color: white;
+}
+
+@media screen and (max-width: 600px) {
+    .site-layout {
+        padding: 0 15px;
+    }
+}
