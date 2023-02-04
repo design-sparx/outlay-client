@@ -13,7 +13,7 @@ const Register = () => {
     console.log('Success:', values);
     setLoading(true);
     try {
-      await axios.post(`/api/users/register`, values);
+      await axios.post(`${process.env.REACT_APP_BASE_URL}/api/users/register`, values);
       message.success('User registration successful');
       setLoading(false);
     } catch (e) {

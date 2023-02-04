@@ -12,7 +12,7 @@ const Login = () => {
     console.log('Success:', values);
     setLoading(true);
     try {
-      const res = await axios.post(`/api/users/login`, values);
+      const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/users/login`, values);
       localStorage.setItem('outlay-user', JSON.stringify({...res.data, password: ''}));
       message.success('User login successful');
       // navigate to home page

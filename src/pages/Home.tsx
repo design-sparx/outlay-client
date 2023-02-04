@@ -44,10 +44,10 @@ const Home = () => {
     setLoading(true);
     try {
       if (Boolean(selectedItem)) {
-        await axios.post(`/api/transactions/edit-transaction`, payload);
+        await axios.post(`${process.env.REACT_APP_BASE_URL}/api/transactions/edit-transaction`, payload);
         message.success('Transaction updated successfully');
       } else {
-        await axios.post(`/api/transactions/add-transaction`, payload);
+        await axios.post(`${process.env.REACT_APP_BASE_URL}/api/transactions/add-transaction`, payload);
         message.success('Added transaction successfully');
       }
       await getAllTransactions();
@@ -62,7 +62,7 @@ const Home = () => {
   const handleDeleteTransaction = async (payload: ITransaction): Promise<void> => {
     setLoading(true);
     try {
-      await axios.post(`/api/transactions/delete-transaction`, payload);
+      await axios.post(`${process.env.REACT_APP_BASE_URL}/api/transactions/delete-transaction`, payload);
       message.success('Transaction deleted successfully');
       await getAllTransactions();
       setLoading(false);
@@ -77,7 +77,7 @@ const Home = () => {
     try {
       if (Boolean(selectedRange)) {
         const user: IUser | null = JSON.parse(localStorage.getItem('outlay-user') ?? '');
-        const res = await axios.post('/api/transactions/get-all', {
+        const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/transactions/get-all`, {
           userid: user?._id,
           frequency,
           ...(frequency === 'custom' && {selectedRange}),
